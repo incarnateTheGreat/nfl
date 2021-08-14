@@ -1,0 +1,94 @@
+@import "./_variables";
+@import "./_defaults";
+
+// Views
+@import "../views/rushing.view";
+// @import "../views/DisplayConsents/displayConsents.view";
+
+// Components
+// @import "../components/Spinner/spinner.component";
+// @import "../components/Nav/nav.component";
+@import "../components/Pagination/pagination.component";
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  header {
+    background: $base-header-colour;
+    color: $white;
+    display: flex;
+
+    .logo {
+      background: url("../vectors/thescore-logo.svg") 0 2px no-repeat;
+      background-size: auto 190%;
+      display: block;
+      height: 24px;
+      margin: 0.5rem 1rem;
+      width: 110px;
+    }
+  }
+
+  section {
+    flex: 1;
+
+    table {
+      font-size: $size-12;
+      margin: 10px 0;
+      table-layout: fixed;
+      width: 100%;
+
+      thead {
+        th {
+          padding: 4px 8px;
+          text-align: left;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+
+          &.sortableHeader {
+            cursor: pointer;
+
+            &:hover {
+              background-color: rgba($base-header-colour, 0.1);
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-top: 1px solid $border-colour;
+          border-bottom: 1px solid $border-colour;
+
+          &:nth-of-type(odd) {
+            background-color: $table-row;
+          }
+
+          td {
+            padding: 6px 10px;
+            word-break: break-all;
+            width: 100%;
+
+            &.selectedColumn {
+              background-color: $selected-column;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    background: $base-header-colour;
+    color: $white;
+    display: flex;
+
+    .footer-container {
+      display: flex;
+      font-size: $size-16;
+      padding: 20px;
+    }
+  }
+}
