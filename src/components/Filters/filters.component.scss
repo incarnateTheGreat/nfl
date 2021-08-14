@@ -1,15 +1,16 @@
 .filter-container {
   align-items: center;
+  background-color: rgba($base-header-colour, 0.1);
   display: flex;
   justify-content: space-between;
 
   &-filters {
-    background-color: rgba($base-header-colour, 0.1);
     display: flex;
     font-size: $size-12;
     justify-content: space-between;
-    padding: 10px 20px;
-    width: 100%;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 80%;
 
     &-excel {
       display: flex;
@@ -17,7 +18,7 @@
     }
 
     &-excel-icon {
-      width: 24px;
+      width: 20px;
 
       img {
         width: inherit;
@@ -53,37 +54,38 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
-  .App {
-    .ledn-token-filter-container {
-      align-items: flex-start;
-      flex-direction: column-reverse;
+@media only screen and (max-width: $medium) {
+  .filter-container {
+    margin: unset;
+    width: auto;
 
-      &-excel {
-        margin: 10px 0 0 auto;
-        justify-self: flex-end;
+    &-excel {
+      margin: 10px 0 0 auto;
+      justify-self: flex-end;
+    }
+
+    &-filters {
+      width: -webkit-fill-available;
+
+      > * {
+        flex-direction: column-reverse;
+        text-align: right;
+
+        &:last-child {
+          margin: 0 0 0 2em;
+        }
       }
 
-      &-filters {
-        width: -webkit-fill-available;
+      button {
+        width: 100%;
+      }
 
+      &-container {
         > * {
-          flex-grow: 1;
-          flex-direction: column-reverse;
-          text-align: center;
-        }
+          padding: 0 0 1em 0;
 
-        button {
-          width: 100%;
-        }
-
-        &-container {
-          > * {
-            padding: 0 0 4px 0;
-
-            &:first-child {
-              padding: 0;
-            }
+          &:first-child {
+            padding: 0;
           }
         }
       }

@@ -21,26 +21,23 @@ const headers = [
   { label: TABLE.FIRST_PERCENTAGE, key: TABLE.FIRST_PERCENTAGE_KEY },
   { label: TABLE.TWENTY_PLUS, key: TABLE.TWENTY_PLUS_KEY },
   { label: TABLE.FORTY_PLUS, key: TABLE.FORTY_PLUS_KEY },
-  { label: TABLE.FUM, key: TABLE.FUM_KEY }
+  { label: TABLE.FUM, key: TABLE.FUM_KEY },
 ];
 
 const Filters = ({
-    clearFilters, 
-    data,
-    searchInput,
-    setPlayersPerPage,
-    playersPerPage,
-    setSearchInput,
-    setPageNumber, 
-    updateURLParams}) => {
-    
+  clearFilters,
+  data,
+  searchInput,
+  setPlayersPerPage,
+  playersPerPage,
+  setSearchInput,
+  setPageNumber,
+}) => {
   const handleSearchInput = (searchString) => {
     // When the search input is cleared, go to the first page.
     if (searchString.length === 0) {
       setPageNumber(1);
     }
-
-    updateURLParams({ [`Player_like`]: searchString, _page: 1 });
   };
 
   // Fire the search input function after a short frame of time to prevent multiple data calls and collisions.
@@ -67,7 +64,7 @@ const Filters = ({
         <div className="filter-container-filters-container">
           <div>
             <button
-              className="--border"
+              className="border"
               type="button"
               title={FILTERS.CLEAR_ALL_FILTERS}
               onClick={() => clearFilters()}
@@ -76,9 +73,7 @@ const Filters = ({
             </button>
           </div>
           <div>
-            <label htmlFor="players-per-page">
-              {FILTERS.PLAYERS_PER_PAGE}
-            </label>
+            <label htmlFor="players-per-page">{FILTERS.PLAYERS_PER_PAGE}</label>
             <select
               name="players-per-page"
               id="players-per-page"

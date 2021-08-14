@@ -2,9 +2,11 @@
 @import "./_defaults";
 
 // Views
-@import "../views/rushing.view";
+@import "../views/NFL/rushing.view";
 
 // Components
+@import "../components/SiteHeader/siteHeader.component";
+@import "../components/SiteSubHeader/siteSubHeader.component";
 @import "../components/Spinner/spinner.component";
 @import "../components/Filters/filters.component";
 @import "../components/Pagination/pagination.component";
@@ -13,21 +15,6 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-
-  header {
-    background: $base-header-colour;
-    color: $white;
-    display: flex;
-
-    .logo {
-      background: url("../vectors/thescore-logo.svg") 0 2px no-repeat;
-      background-size: auto 190%;
-      display: block;
-      height: 24px;
-      margin: 0.5rem 1rem;
-      width: 110px;
-    }
-  }
 
   section {
     flex: 1;
