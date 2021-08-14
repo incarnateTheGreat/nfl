@@ -23,6 +23,19 @@ export const parseLinkHeader = (linkHeader) => {
   return Object.fromEntries(linkHeadersMap);
 };
 
+// Create URL Params.
+export const encodeQueryData = (objectToParse) => {
+  const params = [];
+
+  for (let param in objectToParse) {
+    params.push(
+      `${encodeURIComponent(param)}=${encodeURIComponent(objectToParse[param])}`
+    );
+  }
+
+  return params.join("&");
+};
+
 export const assignActivePageClass = (current, page) =>
   current === page ? "active" : "";
 

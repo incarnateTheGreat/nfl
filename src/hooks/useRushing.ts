@@ -1,13 +1,13 @@
 import { RushingData } from "interfaces/interface";
 import { useQuery } from "react-query";
 import { SERVER_URL } from "utils/constants";
-import { parseLinkHeader } from "utils/utils";
+import { encodeQueryData, parseLinkHeader } from "utils/utils";
 
-const useRushing = (repoName, pageNumber, setData) => {
+const useRushing = (repoName, URLParams, setData) => {
   return useQuery<RushingData[]>(
-    [repoName, pageNumber],
+    [repoName, URLParams],
     () => {
-      let url = `${SERVER_URL}/rushing?_page=${pageNumber}&_limit=10`;
+      let url = `${SERVER_URL}/rushing?${encodeQueryData(URLParams)}`;
 
       // Return the Consent data and set the Pagination data.
       return fetch(url).then(async (response) => {

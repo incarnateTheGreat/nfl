@@ -3,11 +3,10 @@
 
 // Views
 @import "../views/rushing.view";
-// @import "../views/DisplayConsents/displayConsents.view";
 
 // Components
-// @import "../components/Spinner/spinner.component";
-// @import "../components/Nav/nav.component";
+@import "../components/Spinner/spinner.component";
+@import "../components/Filters/filters.component";
 @import "../components/Pagination/pagination.component";
 
 .App {

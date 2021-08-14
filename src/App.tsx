@@ -11,7 +11,6 @@ const App: React.FC = (): JSX.Element => {
       <div className="App">
         <header>
           <div className="logo" />
-          {/* <h3>theScore: NFL Rushing</h3> */}
         </header>
         <section>
           <Rushing />
