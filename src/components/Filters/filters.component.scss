@@ -71,6 +71,10 @@
         flex-direction: column-reverse;
         text-align: right;
 
+        &:first-child {
+          justify-content: flex-end;
+        }
+
         &:last-child {
           margin: 0 0 0 2em;
         }

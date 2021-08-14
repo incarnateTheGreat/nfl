@@ -27,10 +27,10 @@ const headers = [
 const Filters = ({
   clearFilters,
   data,
-  searchInput,
   setPlayersPerPage,
   playersPerPage,
   setSearchInput,
+  searchInput,
   setPageNumber,
 }) => {
   const handleSearchInput = (searchString) => {
@@ -75,6 +75,7 @@ const Filters = ({
           <div>
             <label htmlFor="players-per-page">{FILTERS.PLAYERS_PER_PAGE}</label>
             <select
+              data-testid="filter-players-per-page"
               name="players-per-page"
               id="players-per-page"
               onChange={(e) => {
@@ -91,6 +92,7 @@ const Filters = ({
           <div>
             <label htmlFor="filter-by">{FILTERS.FILTER_BY_NAME}</label>
             <input
+              data-testid="filter-search-input"
               type="search"
               placeholder={FILTERS.SEARCH_BY_PLAYER}
               value={searchInput}
