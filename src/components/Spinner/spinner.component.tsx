@@ -1,5 +1,4 @@
-import React from "react";
-
+import {GENERAL} from 'utils/messages';
 interface SpinnerProps {
   size?: string;
   position?: string;
@@ -13,7 +12,7 @@ const Spinner: React.FC<SpinnerProps> = ({ position, size }): JSX.Element => {
     <div
       data-testid="spinner"
       className={`spinner ${modifierPosition} ${modifierSize}`}
-      title="Loading"
+      title={GENERAL.LOADING}
     ></div>
   );
 };

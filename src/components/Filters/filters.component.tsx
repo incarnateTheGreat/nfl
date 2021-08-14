@@ -82,7 +82,10 @@ const Filters = ({
             <select
               name="players-per-page"
               id="players-per-page"
-              onChange={(e) => setPlayersPerPage(+e.target.value)}
+              onChange={(e) => {
+                setPlayersPerPage(+e.target.value);
+                setPageNumber(1);
+              }}
               value={playersPerPage}
             >
               <option value="25">25</option>
@@ -94,7 +97,7 @@ const Filters = ({
             <label htmlFor="filter-by">{FILTERS.FILTER_BY_NAME}</label>
             <input
               type="search"
-              placeholder="Search by Player"
+              placeholder={FILTERS.SEARCH_BY_PLAYER}
               value={searchInput}
               onChange={(e) => {
                 debounceSearchInputHandler(e.target.value);

@@ -1,3 +1,8 @@
+// General
+export const GENERAL = {
+  LOADING: "Loading"
+};
+
 // Table
 export const TABLE = {
   PLAYER: "Player",
@@ -51,8 +56,9 @@ export const TABLE = {
 export const FILTERS = {
   DOWNLOAD_CSV: "Download CSV",
   CLEAR_ALL_FILTERS: "Clear all filters",
-  PLAYERS_PER_PAGE: "Players per Page:",
+  PLAYERS_PER_PAGE: "Players per page:",
   FILTER_BY_NAME: "Filter by name:",
+  SEARCH_BY_PLAYER: "Search by player"
 };
 
 // Pagination
@@ -61,7 +67,7 @@ export const PAGINATION = {
   FORWARD_TO_FIRST_PAGE: "Forward to the first page",
 };
 
-// ERRORS
+// Errors
 export const ERRORS = {
   NO_RESULTS: "Sorry. There are no results.",
   SERVER_ERROR:
