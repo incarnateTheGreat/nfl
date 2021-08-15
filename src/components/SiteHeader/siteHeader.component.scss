@@ -27,7 +27,15 @@
   .header {
     &-container {
       margin: unset;
-      width: auto;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: $small) {
+  .header {
+    &-container {
+      justify-content: space-between;
     }
   }
 }

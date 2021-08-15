@@ -1,6 +1,4 @@
-.siteNav {
-  margin: 0 0 0 1rem;
-
+@mixin nav-links {
   ul {
     display: flex;
     font-size: $size-12;
@@ -15,7 +13,73 @@
 
       &:hover,
       &.selected {
-        color: $white;
+        color: rgba($white, 0.7);
+      }
+    }
+  }
+}
+
+.siteNav {
+  margin: 0 0 0 1rem;
+
+  &-mobile {
+    display: none;
+  }
+
+  &-mobile-menu-toggle {
+    cursor: pointer;
+    display: none;
+    height: 19px;
+    margin: 0 0 0 1em;
+    position: relative;
+    padding-left: 1.25em;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.25em;
+      width: 1em;
+      height: 0.15em;
+      background: $white;
+      box-shadow: 0 0.25em 0 0 $white, 0 0.5em 0 0 $white;
+    }
+  }
+
+  @include nav-links;
+}
+
+@media only screen and (max-width: $small) {
+  .siteNav {
+    display: none;
+
+    &-mobile-menu-toggle {
+      display: flex;
+    }
+
+    &-mobile {
+      background-color: $base-header-colour;
+      display: none;
+      height: 100%;
+      left: 0;
+      margin: 0;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+
+      &.--open {
+        display: flex;
+      }
+
+      @include nav-links;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          padding: 1em 2em 1em 1em;
+        }
       }
     }
   }
