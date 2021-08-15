@@ -35,59 +35,65 @@ const Pagination = ({ data, pageNumber, setPageNumber }) => {
 
   return (
     <nav className="pagination">
-      <button
-        data-testid="pagination-first-page"
-        disabled={!prevPageNumber}
-        type="button"
-        title={PAGINATION.BACK_TO_FIRST_PAGE}
-        onClick={() => {
-          if (prevPageNumber) {
-            setPageNumber(1);
-          }
-        }}
-      >
-        &#171;
-      </button>
-      <button
-        data-testid="pagination-previous"
-        disabled={!prevPageNumber}
-        type="button"
-        title={PAGINATION.PREVIOUS}
-        onClick={() => {
-          if (prevPageNumber) {
-            setPageNumber(prevPageNumber);
-          }
-        }}
-      >
-        &#8249;
-      </button>
-      <RenderPageNumbers />
-      <button
-        data-testid="pagination-forward"
-        disabled={pageNumber === lastPageNumber}
-        type="button"
-        title={PAGINATION.FORWARD}
-        onClick={() => {
-          if (pageNumber < lastPageNumber) {
-            setPageNumber(nextPageNumber);
-          }
-        }}
-      >
-        &#8250;
-      </button>
-      <button
-        data-testid="pagination-last-page"
-        disabled={pageNumber === lastPageNumber}
-        type="button"
-        title={PAGINATION.FORWARD_TO_LAST_PAGE}
-        onClick={() => {
-          if (pageNumber < lastPageNumber) {
-            setPageNumber(lastPageNumber);
-          }
-        }}
-      >
-        &#187;
-      </button>
+      <div className="pagination-status">
+        Page <span>{pageNumber}</span> of <span>{lastPageNumber}</span>
+      </div>
+
+      <div>
+        <button
+          data-testid="pagination-first-page"
+          disabled={!prevPageNumber}
+          type="button"
+          title={PAGINATION.BACK_TO_FIRST_PAGE}
+          onClick={() => {
+            if (prevPageNumber) {
+              setPageNumber(1);
+            }
+          }}
+        >
+          &#171;
+        </button>
+        <button
+          data-testid="pagination-previous"
+          disabled={!prevPageNumber}
+          type="button"
+          title={PAGINATION.PREVIOUS}
+          onClick={() => {
+            if (prevPageNumber) {
+              setPageNumber(prevPageNumber);
+            }
+          }}
+        >
+          &#8249;
+        </button>
+        <RenderPageNumbers />
+        <button
+          data-testid="pagination-forward"
+          disabled={pageNumber === lastPageNumber}
+          type="button"
+          title={PAGINATION.FORWARD}
+          onClick={() => {
+            if (pageNumber < lastPageNumber) {
+              setPageNumber(nextPageNumber);
+            }
+          }}
+        >
+          &#8250;
+        </button>
+        <button
+          data-testid="pagination-last-page"
+          disabled={pageNumber === lastPageNumber}
+          type="button"
+          title={PAGINATION.FORWARD_TO_LAST_PAGE}
+          onClick={() => {
+            if (pageNumber < lastPageNumber) {
+              setPageNumber(lastPageNumber);
+            }
+          }}
+        >
+          &#187;
+        </button>
+      </div>
     </nav>
   );
 };

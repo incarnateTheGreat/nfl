@@ -2,7 +2,15 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  &-status {
+    font-size: $size-14;
+
+    span {
+      font-weight: bold;
+    }
+  }
 
   &-link {
     color: $white;

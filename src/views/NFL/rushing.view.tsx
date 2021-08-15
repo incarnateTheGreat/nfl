@@ -25,7 +25,11 @@ const Rushing = () => {
   });
   const [rushingDataRes, setRushingDataRes] =
     useState<RushingDataServerResponse>();
-  const { isLoading } = useRushing(repoName, URLParams, setRushingDataRes);
+  const { isLoading, data } = useRushing(
+    repoName,
+    URLParams,
+    setRushingDataRes
+  );
 
   // Clear and reset all filters and sortables to their initial state.
   const clearFilters = () => {
@@ -101,9 +105,9 @@ const Rushing = () => {
 
         {isLoading && <Spinner position="floatCenter" />}
 
-        {!isLoading && rushingDataRes?.data.length > 0 && (
+        {!isLoading && data?.length > 0 && (
           <>
-            {rushingDataRes?.data.length > 0 && (
+            {data?.length > 0 && (
               <Pagination
                 data={rushingDataRes}
                 pageNumber={pageNumber}
@@ -112,7 +116,7 @@ const Rushing = () => {
             )}
 
             <div className="rushing-table-container">
-              <table className="rushing-table">
+              <table className="rushing-table" data-testid="rushing-table">
                 <thead>
                   <tr>
                     <th title={TABLE.PLAYER_DESC}>{TABLE.PLAYER}</th>
@@ -171,7 +175,7 @@ const Rushing = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {rushingDataRes?.data.map((player, key) => {
+                  {data.map((player, key) => {
                     const { Player, Team, Pos, Att, Yds, Avg, TD, Lng, FUM } =
                       player;
 
@@ -220,7 +224,7 @@ const Rushing = () => {
               </table>
             </div>
 
-            {rushingDataRes?.data.length > 0 && (
+            {data?.length > 0 && (
               <Pagination
                 data={rushingDataRes}
                 pageNumber={pageNumber}
@@ -230,8 +234,13 @@ const Rushing = () => {
           </>
         )}
 
-        {!isLoading && rushingDataRes?.data.length === 0 && (
-          <div className="rushing-container-error">{ERRORS.NO_RESULTS}</div>
+        {!isLoading && data?.length === 0 && (
+          <div
+            data-testid="rushing-no-data"
+            className="rushing-container-error"
+          >
+            {ERRORS.NO_RESULTS}
+          </div>
         )}
       </div>
     </article>
