@@ -59,16 +59,17 @@
 
     &-mobile {
       background-color: $base-header-colour;
-      display: none;
+      display: flex;
       height: 100%;
-      left: 0;
+      left: -130px;
       margin: 0;
       position: fixed;
       top: 0;
+      transition: all 150ms;
       z-index: 100;
 
       &.--open {
-        display: flex;
+        left: 0;
       }
 
       @include nav-links;

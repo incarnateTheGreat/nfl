@@ -95,14 +95,15 @@
 @media only screen and (max-width: $medium) {
   .rushing {
     &-container {
+      margin: unset;
+      width: auto;
+
       h2 {
         margin: 0.75em 1em 0 1em;
       }
 
-      margin: unset;
-      width: auto;
-
       .rushing-table-container {
+        margin: 1.5em;
         padding: 0;
       }
     }
