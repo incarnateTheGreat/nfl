@@ -95,6 +95,7 @@ const Filters = ({
           </div>
         </div>
         <button
+          data-testid="filter-clear-filters"
           className="border"
           type="button"
           title={FILTERS.CLEAR_ALL_FILTERS}

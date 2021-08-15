@@ -193,15 +193,53 @@ describe("Filters component", () => {
     expect(playersPerPage).toBeTruthy();
     expect(playersPerPage.value).toBe("25");
 
-    // // Update the search input;
-    // await act(async () => {
-    //   fireEvent.change(searchInput, { target: { value: "Garry" } });
-    // });
+    // Update the players per page dropdown.
+    await act(async () => {
+      fireEvent.change(playersPerPage, { target: { value: "50" } });
+    });
 
-    // await component.rerender(<Filters {...mockFiltersData} />);
+    await component.rerender(<Filters {...mockFiltersData} />);
 
-    // // Verify that the search input has been poplated.
-    // expect(searchInput).toBeTruthy();
-    // expect(searchInput.value).toBe("Garry");
+    // Verify that the players per page has been updated to 50.
+    expect(playersPerPage).toBeTruthy();
+    expect(playersPerPage.value).toBe("50");
+  });
+
+  test("Clear filters button resets successfully", async () => {
+    const mockFiltersClearFilters = {
+      ...mockFiltersData,
+      playersPerPage: 50,
+      searchInput: "Garry",
+      clearFilters: () => {
+        mockFiltersClearFilters.searchInput = "";
+        mockFiltersClearFilters.playersPerPage = 25;
+      },
+    };
+
+    let component;
+
+    component = render(<Filters {...mockFiltersClearFilters} />);
+
+    const { getByTestId } = component;
+
+    const searchInput: HTMLInputElement = getByTestId("filter-search-input");
+    const clearFilters: HTMLSelectElement = getByTestId("filter-clear-filters");
+    const playersPerPage: HTMLSelectElement = getByTestId(
+      "filter-players-per-page"
+    );
+
+    // Verify that the clear filters button, the search input, and the players per page elements are active.
+    expect(clearFilters).toBeTruthy();
+    expect(searchInput).toBeTruthy();
+    expect(playersPerPage).toBeTruthy();
+
+    // Click the clear filters button.
+    clearFilters.click();
+
+    await component.rerender(<Filters {...mockFiltersClearFilters} />);
+
+    // Verify that the players per page has been reset to 25 and the search input has been erased.
+    expect(searchInput.value).toBe("");
+    expect(playersPerPage.value).toBe("25");
   });
 });
