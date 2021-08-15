@@ -86,150 +86,154 @@ const Rushing = () => {
 
   return (
     <article className="rushing">
-      <Filters
-        clearFilters={clearFilters}
-        data={rushingDataRes?.data}
-        searchInput={searchInput}
-        setPlayersPerPage={setPlayersPerPage}
-        playersPerPage={playersPerPage}
-        setSearchInput={setSearchInput}
-        setPageNumber={setPageNumber}
-      />
+      <div className="rushing-container">
+        <h2>Rushing</h2>
 
-      {isLoading && <Spinner position="floatCenter" />}
+        <Filters
+          clearFilters={clearFilters}
+          data={rushingDataRes?.data}
+          searchInput={searchInput}
+          setPlayersPerPage={setPlayersPerPage}
+          playersPerPage={playersPerPage}
+          setSearchInput={setSearchInput}
+          setPageNumber={setPageNumber}
+        />
 
-      {!isLoading && rushingDataRes?.data.length > 0 && (
-        <div className="rushing-container">
-          {rushingDataRes?.data.length > 0 && (
-            <Pagination
-              data={rushingDataRes}
-              pageNumber={pageNumber}
-              setPageNumber={setPageNumber}
-            />
-          )}
+        {isLoading && <Spinner position="floatCenter" />}
 
-          <div className="rushing-table-container">
-            <table className="rushing-table">
-              <thead>
-                <tr>
-                  <th title={TABLE.PLAYER_DESC}>{TABLE.PLAYER}</th>
-                  <th title={TABLE.TEAM_DESC}>{TABLE.TEAM}</th>
-                  <th title={TABLE.POS_DESC}>{TABLE.POS}</th>
-                  <th title={TABLE.ATT_DESC}>{TABLE.ATT}</th>
-                  <th title={TABLE.ATT_G_DESC}>{TABLE.ATT_G}</th>
-                  <th
-                    title={TABLE.YDS_DESC}
-                    className={`${assignSelectedColumnClass(
-                      selectedSortColumn,
-                      TABLE.YDS_KEY
-                    )} sortableHeader`}
-                    onClick={() => sortData(TABLE.YDS_KEY)}
-                  >
-                    <div>
-                      <span>{TABLE.YDS}</span>
-                      <span>{assignSortArrow(TABLE.YDS_KEY)}</span>
-                    </div>
-                  </th>
-                  <th title={TABLE.AVG_DESC}>{TABLE.AVG}</th>
-                  <th title={TABLE.YDS_G_DESC}>{TABLE.YDS_G}</th>
-                  <th
-                    title={TABLE.TD_DESC}
-                    className={`${assignSelectedColumnClass(
-                      selectedSortColumn,
-                      TABLE.TD_KEY
-                    )} sortableHeader`}
-                    onClick={() => sortData(TABLE.TD_KEY)}
-                  >
-                    <div>
-                      <span>{TABLE.TD}</span>
-                      <span>{assignSortArrow(TABLE.TD_KEY)}</span>
-                    </div>
-                  </th>
-                  <th
-                    title={TABLE.LNG_DESC}
-                    className={`${assignSelectedColumnClass(
-                      selectedSortColumn,
-                      TABLE.LNG_KEY
-                    )} sortableHeader`}
-                    onClick={() => sortData(TABLE.LNG_KEY)}
-                  >
-                    <div>
-                      <span>{TABLE.LNG}</span>
-                      <span>{assignSortArrow(TABLE.LNG_KEY)}</span>
-                    </div>
-                  </th>
-                  <th title={TABLE.FIRST_DESC}>{TABLE.FIRST}</th>
-                  <th title={TABLE.FIRST_PERCENTAGE_DESC}>
-                    {TABLE.FIRST_PERCENTAGE}
-                  </th>
-                  <th title={TABLE.TWENTY_PLUS_DESC}>{TABLE.TWENTY_PLUS}</th>
-                  <th title={TABLE.FORTY_PLUS_DESC}>{TABLE.FORTY_PLUS}</th>
-                  <th title={TABLE.FUM_DESC}>{TABLE.FUM}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rushingDataRes?.data.map((player, key) => {
-                  const { Player, Team, Pos, Att, Yds, Avg, TD, Lng, FUM } =
-                    player;
+        {!isLoading && rushingDataRes?.data.length > 0 && (
+          <>
+            {rushingDataRes?.data.length > 0 && (
+              <Pagination
+                data={rushingDataRes}
+                pageNumber={pageNumber}
+                setPageNumber={setPageNumber}
+              />
+            )}
 
-                  return (
-                    <tr key={key}>
-                      <td>{Player}</td>
-                      <td>{Team}</td>
-                      <td>{Pos}</td>
-                      <td>{Att}</td>
-                      <td>{player["Att/G"]}</td>
-                      <td
-                        className={`${assignSelectedColumnClass(
-                          selectedSortColumn,
-                          TABLE.YDS_KEY
-                        )}`}
-                      >
-                        {Yds}
-                      </td>
-                      <td>{Avg}</td>
-                      <td>{player["Yds/G"]}</td>
-                      <td
-                        className={`${assignSelectedColumnClass(
-                          selectedSortColumn,
-                          TABLE.TD_KEY
-                        )}`}
-                      >
-                        {TD}
-                      </td>
-                      <td
-                        className={`${assignSelectedColumnClass(
-                          selectedSortColumn,
-                          TABLE.LNG_KEY
-                        )}`}
-                      >
-                        {Lng}
-                      </td>
-                      <td>{player["1st"]}</td>
-                      <td>{player["1st%"]}</td>
-                      <td>{player["20+"]}</td>
-                      <td>{player["40+"]}</td>
-                      <td>{FUM}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+            <div className="rushing-table-container">
+              <table className="rushing-table">
+                <thead>
+                  <tr>
+                    <th title={TABLE.PLAYER_DESC}>{TABLE.PLAYER}</th>
+                    <th title={TABLE.TEAM_DESC}>{TABLE.TEAM}</th>
+                    <th title={TABLE.POS_DESC}>{TABLE.POS}</th>
+                    <th title={TABLE.ATT_DESC}>{TABLE.ATT}</th>
+                    <th title={TABLE.ATT_G_DESC}>{TABLE.ATT_G}</th>
+                    <th
+                      title={TABLE.YDS_DESC}
+                      className={`${assignSelectedColumnClass(
+                        selectedSortColumn,
+                        TABLE.YDS_KEY
+                      )} sortableHeader`}
+                      onClick={() => sortData(TABLE.YDS_KEY)}
+                    >
+                      <div>
+                        <span>{TABLE.YDS}</span>
+                        <span>{assignSortArrow(TABLE.YDS_KEY)}</span>
+                      </div>
+                    </th>
+                    <th title={TABLE.AVG_DESC}>{TABLE.AVG}</th>
+                    <th title={TABLE.YDS_G_DESC}>{TABLE.YDS_G}</th>
+                    <th
+                      title={TABLE.TD_DESC}
+                      className={`${assignSelectedColumnClass(
+                        selectedSortColumn,
+                        TABLE.TD_KEY
+                      )} sortableHeader`}
+                      onClick={() => sortData(TABLE.TD_KEY)}
+                    >
+                      <div>
+                        <span>{TABLE.TD}</span>
+                        <span>{assignSortArrow(TABLE.TD_KEY)}</span>
+                      </div>
+                    </th>
+                    <th
+                      title={TABLE.LNG_DESC}
+                      className={`${assignSelectedColumnClass(
+                        selectedSortColumn,
+                        TABLE.LNG_KEY
+                      )} sortableHeader`}
+                      onClick={() => sortData(TABLE.LNG_KEY)}
+                    >
+                      <div>
+                        <span>{TABLE.LNG}</span>
+                        <span>{assignSortArrow(TABLE.LNG_KEY)}</span>
+                      </div>
+                    </th>
+                    <th title={TABLE.FIRST_DESC}>{TABLE.FIRST}</th>
+                    <th title={TABLE.FIRST_PERCENTAGE_DESC}>
+                      {TABLE.FIRST_PERCENTAGE}
+                    </th>
+                    <th title={TABLE.TWENTY_PLUS_DESC}>{TABLE.TWENTY_PLUS}</th>
+                    <th title={TABLE.FORTY_PLUS_DESC}>{TABLE.FORTY_PLUS}</th>
+                    <th title={TABLE.FUM_DESC}>{TABLE.FUM}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rushingDataRes?.data.map((player, key) => {
+                    const { Player, Team, Pos, Att, Yds, Avg, TD, Lng, FUM } =
+                      player;
 
-          {rushingDataRes?.data.length > 0 && (
-            <Pagination
-              data={rushingDataRes}
-              pageNumber={pageNumber}
-              setPageNumber={setPageNumber}
-            />
-          )}
-        </div>
-      )}
+                    return (
+                      <tr key={key}>
+                        <td>{Player}</td>
+                        <td>{Team}</td>
+                        <td>{Pos}</td>
+                        <td>{Att}</td>
+                        <td>{player["Att/G"]}</td>
+                        <td
+                          className={`${assignSelectedColumnClass(
+                            selectedSortColumn,
+                            TABLE.YDS_KEY
+                          )}`}
+                        >
+                          {Yds}
+                        </td>
+                        <td>{Avg}</td>
+                        <td>{player["Yds/G"]}</td>
+                        <td
+                          className={`${assignSelectedColumnClass(
+                            selectedSortColumn,
+                            TABLE.TD_KEY
+                          )}`}
+                        >
+                          {TD}
+                        </td>
+                        <td
+                          className={`${assignSelectedColumnClass(
+                            selectedSortColumn,
+                            TABLE.LNG_KEY
+                          )}`}
+                        >
+                          {Lng}
+                        </td>
+                        <td>{player["1st"]}</td>
+                        <td>{player["1st%"]}</td>
+                        <td>{player["20+"]}</td>
+                        <td>{player["40+"]}</td>
+                        <td>{FUM}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
 
-      {!isLoading && rushingDataRes?.data.length === 0 && (
-        <div className="rushing-container-error">{ERRORS.NO_RESULTS}</div>
-      )}
+            {rushingDataRes?.data.length > 0 && (
+              <Pagination
+                data={rushingDataRes}
+                pageNumber={pageNumber}
+                setPageNumber={setPageNumber}
+              />
+            )}
+          </>
+        )}
+
+        {!isLoading && rushingDataRes?.data.length === 0 && (
+          <div className="rushing-container-error">{ERRORS.NO_RESULTS}</div>
+        )}
+      </div>
     </article>
   );
 };

@@ -1,4 +1,4 @@
-const SiteSubHeader = () => {
+const SiteSubNav = () => {
   return (
     <nav className="siteSubNav">
       <div className="siteSubNav-container">
@@ -11,8 +11,15 @@ const SiteSubHeader = () => {
           <li>Teams</li>
         </ul>
       </div>
+      <div className="siteSubNav-container --secondary">
+        <ul>
+          <li className="selected">Rushing</li>
+          <li>Passing</li>
+          <li>Receiving</li>
+        </ul>
+      </div>
     </nav>
   );
 };
 
-export default SiteSubHeader;
+export default SiteSubNav;

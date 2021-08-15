@@ -1,7 +1,6 @@
 .rushing {
   display: flex;
   flex-direction: column;
-  height: 100%;
 
   &-container {
     background-color: $white;
@@ -11,8 +10,13 @@
     margin: 0 auto;
     width: 80%;
 
+    h2 {
+      border-bottom: 2px solid $base-header-colour;
+      margin: 1rem;
+    }
+
     .pagination {
-      padding: 1rem;
+      margin: 1em 1.5em;
     }
 
     .rushing-table-container {
@@ -21,6 +25,12 @@
       padding: 0.25rem 1rem;
 
       table {
+        border-collapse: collapse;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+
         font-size: $size-12;
         width: 100%;
 
@@ -54,8 +64,8 @@
 
         tbody {
           tr {
-            border-top: 1px solid $border-colour;
-            border-bottom: 1px solid $border-colour;
+            border-top: 1px solid rgba(13, 36, 60, 0.25);
+            border-bottom: 1px solid rgba(13, 36, 60, 0.25);
 
             &:nth-of-type(odd) {
               background-color: $table-row;
@@ -85,6 +95,10 @@
 @media only screen and (max-width: $medium) {
   .rushing {
     &-container {
+      h2 {
+        margin: 0.75em 1em 0 1em;
+      }
+
       margin: unset;
       width: auto;
 

@@ -1,16 +1,18 @@
 .filter-container {
   align-items: center;
-  background-color: rgba($base-header-colour, 0.1);
   display: flex;
   justify-content: space-between;
+  margin: 1em;
 
   &-filters {
+    align-items: center;
+    background-color: rgba($base-header-colour, 0.1);
     display: flex;
     font-size: $size-12;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 0 auto;
     padding: 1em 2em;
-    width: 80%;
+    width: 100%;
 
     &-excel {
       display: flex;
@@ -26,18 +28,30 @@
     }
 
     &-container {
+      align-items: center;
       flex-grow: 1;
       display: flex;
-      justify-content: flex-end;
 
       > * {
-        padding: 0 0 0 10px;
+        align-items: center;
+        display: flex;
+        padding: 0 1em 0 0;
+
+        &:first-child {
+          order: 3;
+          padding: 0;
+        }
       }
     }
   }
 
   label {
+    font-weight: 500;
     padding: 0 4px 0 0;
+
+    &[for="download_csv"] {
+      display: none;
+    }
   }
 
   select {
@@ -56,8 +70,14 @@
 
 @media only screen and (max-width: $medium) {
   .filter-container {
-    margin: unset;
+    margin: 1.5em;
     width: auto;
+
+    label {
+      &[for="download_csv"] {
+        display: block;
+      }
+    }
 
     &-excel {
       margin: 10px 0 0 auto;
@@ -65,33 +85,32 @@
     }
 
     &-filters {
+      flex-direction: column;
       width: -webkit-fill-available;
 
       > * {
-        flex-direction: column-reverse;
-        text-align: right;
-
         &:first-child {
-          justify-content: flex-end;
+          align-items: flex-start;
+          flex-direction: column;
+          width: 100%;
         }
-
-        &:last-child {
-          margin: 0 0 0 2em;
-        }
-      }
-
-      button {
-        width: 100%;
       }
 
       &-container {
+        margin: 0 0 1em;
         > * {
+          justify-content: space-between;
           padding: 0 0 1em 0;
+          width: 100%;
 
           &:first-child {
             padding: 0;
           }
         }
+      }
+
+      button {
+        width: 100%;
       }
     }
   }

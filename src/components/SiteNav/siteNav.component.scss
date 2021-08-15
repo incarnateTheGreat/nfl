@@ -1,0 +1,22 @@
+.siteNav {
+  margin: 0 0 0 1rem;
+
+  ul {
+    display: flex;
+    font-size: $size-12;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      margin: 0 4px;
+      transition: ease-in 50ms;
+
+      &:hover,
+      &.selected {
+        color: $white;
+      }
+    }
+  }
+}

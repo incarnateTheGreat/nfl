@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: revert;
     margin: 0 auto;
-    padding: 0em 1.5em;
+    padding: 0 1.5em;
     width: 80%;
   }
 
@@ -20,29 +20,6 @@
     height: 24px;
     margin: 0.5rem 0;
     width: 110px;
-  }
-
-  &-siteNav {
-    margin: 0 0 0 1rem;
-
-    ul {
-      display: flex;
-      font-size: $size-12;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        cursor: pointer;
-        margin: 0 4px;
-        transition: ease-in 50ms;
-
-        &:hover,
-        &.selected {
-          color: $link-color-light;
-        }
-      }
-    }
   }
 }
 

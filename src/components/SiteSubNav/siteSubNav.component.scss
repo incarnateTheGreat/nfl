@@ -1,17 +1,21 @@
 .siteSubNav {
-  background-color: rgba($base-header-colour, 0.65);
   color: $white;
 
   &-container {
     align-items: center;
+    background-color: rgba($base-header-colour, 0.8);
     display: flex;
-    margin: 0 auto;
-    flex-direction: revert;
-    padding: 0em 1.5em;
+    padding: 0 10%;
     width: 80%;
+
+    &.--secondary {
+      background-color: rgba($base-header-colour, 0.55);
+    }
 
     &-selectedCategory {
       font-weight: bold;
+      letter-spacing: 0.06em;
+      font-size: 1.25em;
     }
 
     &-divider {
@@ -23,11 +27,13 @@
       display: flex;
       font-size: $size-12;
       list-style: none;
+      margin: 0;
       padding: 0;
 
       li {
         cursor: pointer;
         margin: 0 4px;
+        padding: 1em 0.5em;
         transition: ease-in 50ms;
 
         &:first-child {
@@ -36,6 +42,7 @@
 
         &:hover,
         &.selected {
+          border-bottom: 3px solid #77b9ff;
           color: $link-color-light;
         }
       }
@@ -46,8 +53,8 @@
 @media only screen and (max-width: $medium) {
   .siteSubNav {
     &-container {
-      margin: unset;
-      width: auto;
+      padding: 0 1.5em;
+      width: unset;
     }
   }
 }

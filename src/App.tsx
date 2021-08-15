@@ -2,7 +2,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Rushing from "views/NFL/rushing.view";
 import SiteHeader from "components/SiteHeader/siteHeader.component";
-import SiteSubHeader from "components/SiteSubHeader/siteSubHeader.component";
+import SiteSubNav from "components/SiteSubNav/siteSubNav.component";
 
 // Initialize the Query Client.
 const queryClient = new QueryClient();
@@ -13,7 +13,7 @@ const App: React.FC = (): JSX.Element => {
       <div className="App">
         <SiteHeader />
         <section>
-          <SiteSubHeader />
+          <SiteSubNav />
           <Rushing />
         </section>
         <footer>

@@ -49,28 +49,19 @@ const Filters = ({
   return (
     <div className="filter-container">
       <div className="filter-container-filters">
-        <div className="filter-container-filters-excel">
-          {data?.length > 0 && (
-            <CSVLink
-              className={"filter-container-filters-excel-icon"}
-              data={data}
-              headers={headers}
-              title={FILTERS.DOWNLOAD_CSV}
-            >
-              <img src="../icons/excel-icon.png" alt={FILTERS.DOWNLOAD_CSV} />
-            </CSVLink>
-          )}
-        </div>
         <div className="filter-container-filters-container">
-          <div>
-            <button
-              className="border"
-              type="button"
-              title={FILTERS.CLEAR_ALL_FILTERS}
-              onClick={() => clearFilters()}
-            >
-              {FILTERS.CLEAR_ALL_FILTERS}
-            </button>
+          <div className="filter-container-filters-excel">
+            <label htmlFor="download_csv">{FILTERS.DOWNLOAD_CSV}</label>
+            {data?.length > 0 && (
+              <CSVLink
+                className={"filter-container-filters-excel-icon"}
+                data={data}
+                headers={headers}
+                title={FILTERS.DOWNLOAD_CSV}
+              >
+                <img src="../icons/excel-icon.png" alt={FILTERS.DOWNLOAD_CSV} />
+              </CSVLink>
+            )}
           </div>
           <div>
             <label htmlFor="players-per-page">{FILTERS.PLAYERS_PER_PAGE}</label>
@@ -103,6 +94,14 @@ const Filters = ({
             />
           </div>
         </div>
+        <button
+          className="border"
+          type="button"
+          title={FILTERS.CLEAR_ALL_FILTERS}
+          onClick={() => clearFilters()}
+        >
+          {FILTERS.CLEAR_ALL_FILTERS}
+        </button>
       </div>
     </div>
   );
