@@ -1,6 +1,6 @@
 // General
 export const GENERAL = {
-  LOADING: "Loading"
+  LOADING: "Loading",
 };
 
 // Table
@@ -49,16 +49,16 @@ export const TABLE = {
   FORTY_PLUS_DESC: "Rushing 40+ yards each",
   FUM: "Fum",
   FUM_KEY: "Fum",
-  FUM_DESC: "Rushing fumbles"
+  FUM_DESC: "Rushing fumbles",
 };
 
 // Filters
 export const FILTERS = {
-  DOWNLOAD_CSV: "Download CSV",
+  DOWNLOAD_CSV: "Download CSV:",
   CLEAR_ALL_FILTERS: "Clear all filters",
   PLAYERS_PER_PAGE: "Players per page:",
   FILTER_BY_NAME: "Filter by name:",
-  SEARCH_BY_PLAYER: "Search by player"
+  SEARCH_BY_PLAYER: "Search by player",
 };
 
 // Pagination

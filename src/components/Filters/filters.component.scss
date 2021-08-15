@@ -11,7 +11,7 @@
     font-size: $size-12;
     justify-content: flex-end;
     margin: 0 auto;
-    padding: 1em 2em;
+    padding: 1em;
     width: 100%;
 
     &-excel {
@@ -48,10 +48,6 @@
   label {
     font-weight: 500;
     padding: 0 4px 0 0;
-
-    &[for="download_csv"] {
-      display: none;
-    }
   }
 
   select {
@@ -72,12 +68,6 @@
   .filter-container {
     margin: 1.5em;
     width: auto;
-
-    label {
-      &[for="download_csv"] {
-        display: block;
-      }
-    }
 
     &-excel {
       margin: 10px 0 0 auto;

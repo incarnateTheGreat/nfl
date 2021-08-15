@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Rushing from "views/NFL/rushing.view";
 import SiteHeader from "components/SiteHeader/siteHeader.component";
 import SiteSubNav from "components/SiteSubNav/siteSubNav.component";
+import SiteFooter from "components/SiteFooter/siteFooter.component";
 
 // Initialize the Query Client.
 const queryClient = new QueryClient();
@@ -16,11 +17,7 @@ const App: React.FC = (): JSX.Element => {
           <SiteSubNav />
           <Rushing />
         </section>
-        <footer>
-          <div className="footer-container">
-            &copy; theScore {new Date().getFullYear()}
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </QueryClientProvider>
   );

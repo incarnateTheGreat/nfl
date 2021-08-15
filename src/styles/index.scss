@@ -11,6 +11,7 @@
 @import "../components/Spinner/spinner.component";
 @import "../components/Filters/filters.component";
 @import "../components/Pagination/pagination.component";
+@import "../components/SiteFooter/siteFooter.component";
 
 .App {
   display: flex;
@@ -19,17 +20,5 @@
 
   section {
     flex: 1;
-  }
-
-  footer {
-    background: $base-header-colour;
-    color: $white;
-    display: flex;
-
-    .footer-container {
-      display: flex;
-      font-size: $size-12;
-      padding: 20px;
-    }
   }
 }
