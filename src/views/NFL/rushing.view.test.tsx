@@ -348,8 +348,8 @@ describe("Rushing view", () => {
       // Verify that the table is visible.
       expect(table).toBeTruthy();
 
-      // Verify that the spinner is disabled.
-      expect(spinner).toBeFalsy();
+      // Verify that the spinner is not in the document.
+      expect(spinner).not.toBeInTheDocument();
     });
   });
 
@@ -385,7 +385,7 @@ describe("Rushing view", () => {
       // Get the no-data element.
       const noData: HTMLDivElement = getByTestId("rushing-no-data");
 
-      // Verify that the spinner is active.
+      // Verify that the spinner is not in the document.
       expect(spinner).not.toBeInTheDocument();
 
       // Verify that the no-data element is visible.
