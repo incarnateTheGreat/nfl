@@ -10,13 +10,13 @@ const Pagination = ({ data, pageNumber, setPageNumber }) => {
   // Set the previous, next, and last variables for navigation.
   useEffect(() => {
     setPrevPageNumber(data?.links?.prev ?? null);
-    setNextPageNumber(data?.links?.next);
+    setNextPageNumber(data?.links?.next ?? null);
     setLastPageNumber(data?.links?.last);
   }, [data]);
 
   // Programmatically render out the number of pages as buttons.
-  const renderPageNumbers = () => {
-    return Array(lastPageNumber)
+  const RenderPageNumbers = (): JSX.Element => {
+    const pageNumbers = Array(lastPageNumber)
       .fill(null)
       .map((_, i) => (
         <button
@@ -29,11 +29,14 @@ const Pagination = ({ data, pageNumber, setPageNumber }) => {
           {i + 1}
         </button>
       ));
+
+    return <>{pageNumbers}</>;
   };
 
   return (
     <nav className="pagination">
       <button
+        data-testid="pagination-first-page"
         disabled={!prevPageNumber}
         type="button"
         title={PAGINATION.BACK_TO_FIRST_PAGE}
@@ -46,9 +49,10 @@ const Pagination = ({ data, pageNumber, setPageNumber }) => {
         &#171;
       </button>
       <button
+        data-testid="pagination-previous"
         disabled={!prevPageNumber}
         type="button"
-        title="Back"
+        title={PAGINATION.PREVIOUS}
         onClick={() => {
           if (prevPageNumber) {
             setPageNumber(prevPageNumber);
@@ -57,11 +61,12 @@ const Pagination = ({ data, pageNumber, setPageNumber }) => {
       >
         &#8249;
       </button>
-      {renderPageNumbers()}
+      <RenderPageNumbers />
       <button
+        data-testid="pagination-forward"
         disabled={pageNumber === lastPageNumber}
         type="button"
-        title="Forward"
+        title={PAGINATION.FORWARD}
         onClick={() => {
           if (pageNumber < lastPageNumber) {
             setPageNumber(nextPageNumber);
@@ -71,9 +76,10 @@ const Pagination = ({ data, pageNumber, setPageNumber }) => {
         &#8250;
       </button>
       <button
+        data-testid="pagination-last-page"
         disabled={pageNumber === lastPageNumber}
         type="button"
-        title="Forward to the last page"
+        title={PAGINATION.FORWARD_TO_LAST_PAGE}
         onClick={() => {
           if (pageNumber < lastPageNumber) {
             setPageNumber(lastPageNumber);

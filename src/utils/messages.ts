@@ -64,7 +64,9 @@ export const FILTERS = {
 // Pagination
 export const PAGINATION = {
   BACK_TO_FIRST_PAGE: "Back to the first page",
-  FORWARD_TO_FIRST_PAGE: "Forward to the first page",
+  PREVIOUS: "Previous",
+  FORWARD_TO_LAST_PAGE: "Forward to the last page",
+  FORWARD: "Forward",
 };
 
 // Errors

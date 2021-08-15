@@ -153,7 +153,7 @@ const mockFiltersData = {
 };
 
 describe("Filters component", () => {
-  test("Player search input changes on update", async () => {
+  test("Player search input changes on update", () => {
     let component;
 
     component = render(<Filters {...mockFiltersData} />);
@@ -167,18 +167,18 @@ describe("Filters component", () => {
     expect(searchInput.value).toBe("");
 
     // Update the search input;
-    await act(async () => {
+    act(() => {
       fireEvent.change(searchInput, { target: { value: "Garry" } });
     });
 
-    await component.rerender(<Filters {...mockFiltersData} />);
+    component.rerender(<Filters {...mockFiltersData} />);
 
     // Verify that the search input has been poplated.
     expect(searchInput).toBeTruthy();
     expect(searchInput.value).toBe("Garry");
   });
 
-  test("Players per page dropdown updates", async () => {
+  test("Players per page dropdown updates", () => {
     let component;
 
     component = render(<Filters {...mockFiltersData} />);
@@ -194,18 +194,18 @@ describe("Filters component", () => {
     expect(playersPerPage.value).toBe("25");
 
     // Update the players per page dropdown.
-    await act(async () => {
+    act(() => {
       fireEvent.change(playersPerPage, { target: { value: "50" } });
     });
 
-    await component.rerender(<Filters {...mockFiltersData} />);
+    component.rerender(<Filters {...mockFiltersData} />);
 
     // Verify that the players per page has been updated to 50.
     expect(playersPerPage).toBeTruthy();
     expect(playersPerPage.value).toBe("50");
   });
 
-  test("Clear filters button resets successfully", async () => {
+  test("Clear filters button resets successfully", () => {
     const mockFiltersClearFilters = {
       ...mockFiltersData,
       playersPerPage: 50,
@@ -236,7 +236,7 @@ describe("Filters component", () => {
     // Click the clear filters button.
     clearFilters.click();
 
-    await component.rerender(<Filters {...mockFiltersClearFilters} />);
+    component.rerender(<Filters {...mockFiltersClearFilters} />);
 
     // Verify that the players per page has been reset to 25 and the search input has been erased.
     expect(searchInput.value).toBe("");
