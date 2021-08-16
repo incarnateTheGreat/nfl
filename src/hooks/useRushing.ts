@@ -9,7 +9,7 @@ const useRushing = (repoName, URLParams, setData) => {
     () => {
       let url = `${SERVER_URL}/rushing?${encodeQueryData(URLParams)}`;
 
-      // Return the Consent data and set the Pagination data.
+      // Return the Rushing data and set the Pagination data.
       return fetch(url).then(async (response) => {
         const data = await response.json();
 
